@@ -2,24 +2,34 @@ public class Node<K extends Comparable<K>, V> {
     private K key;
     private V value;
     private boolean isRed = true;
-    private Node leftChild = null;
-    private Node rightChild = null;
+    private Node<K, V> leftChild = null;
+    private Node<K, V> rightChild = null;
 
-    public Node(K key, V value) {
+    Node(K key, V value) {
         this.key = key;
         this.value = value;
-    }
-
-    public K getKey() {
-        return key;
     }
 
     public boolean isRed() {
         return isRed;
     }
 
-    public void switchColor() {
+    public void swapColors(Node<K, V> other) {
+        boolean temp = this.isRed;
+        this.isRed = other.isRed;
+        other.isRed = temp;
+    }
+
+    public void invertColor() {
         isRed = !isRed;
+    }
+
+    public void makeBlack() {
+        isRed = false;
+    }
+
+    public K getKey() {
+        return key;
     }
 
     public V getValue() {
@@ -30,19 +40,19 @@ public class Node<K extends Comparable<K>, V> {
         this.value = value;
     }
 
-    public Node getLeftChild() {
+    public Node<K, V> getLeftChild() {
         return leftChild;
     }
 
-    public void setLeftChild(Node leftChild) {
+    public void setLeftChild(Node<K, V> leftChild) {
         this.leftChild = leftChild;
     }
 
-    public Node getRightChild() {
+    public Node<K, V> getRightChild() {
         return rightChild;
     }
 
-    public void setRightChild(Node rightChild) {
+    public void setRightChild(Node<K, V> rightChild) {
         this.rightChild = rightChild;
     }
 }
