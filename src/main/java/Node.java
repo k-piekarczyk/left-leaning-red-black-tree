@@ -10,6 +10,12 @@ public class Node<K extends Comparable<K>, V> {
         this.value = value;
     }
 
+    Node(K key, V value, boolean isRed) {
+        this.key = key;
+        this.value = value;
+        this.isRed = isRed;
+    }
+
     public boolean isRed() {
         return isRed;
     }

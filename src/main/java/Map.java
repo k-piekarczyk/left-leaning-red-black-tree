@@ -12,7 +12,7 @@ public class Map<K extends Comparable<K>, V> implements MapInterface<K, V> {
         return findKey(key, root);
     }
 
-    public Node<K, V> insert(K key, V value, Node<K, V> currentNode) {
+    private Node<K, V> insert(K key, V value, Node<K, V> currentNode) {
 
         if (currentNode == null) return new Node<>(key, value);
         else if (key.compareTo(currentNode.getKey()) < 0)
@@ -44,7 +44,7 @@ public class Map<K extends Comparable<K>, V> implements MapInterface<K, V> {
         return currentNode;
     }
 
-    public V findKey(K key, Node<K, V> currentNode) {
+    private V findKey(K key, Node<K, V> currentNode) {
         if (currentNode == null) throw new KeyNotFound();
         else if (key.compareTo(currentNode.getKey()) == 0) return currentNode.getValue();
         else if (key.compareTo(currentNode.getKey()) < 0) return findKey(key, currentNode.getLeftChild());
@@ -73,5 +73,13 @@ public class Map<K extends Comparable<K>, V> implements MapInterface<K, V> {
     private boolean isNodeBlack(Node<K, V> currentNode) {
         if (currentNode == null) return true;
         else return !currentNode.isRed();
+    }
+
+    public Node<K, V> getRoot() {
+        return root;
+    }
+
+    public void setRoot(Node<K, V> root) {
+        this.root = root;
     }
 }
