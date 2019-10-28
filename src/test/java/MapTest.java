@@ -1,3 +1,5 @@
+import java.util.Random;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class MapTest {
@@ -78,4 +80,35 @@ class MapTest {
         assertEquals(12, val4);
         assertEquals(35, val5);
     }
+
+//    @org.junit.jupiter.api.Test
+//    void checkExecutionTimeSetValue() {
+//        Map<Integer, Integer> map;
+//        long timeStart;
+//        int constVal = 1;
+//        int attempts = 10;
+//        int maxN = 100000;
+//        int increments = 100;
+//        long acc;
+//        long avg;
+//        Random random = new Random();
+//
+//        for (int n = 0; n < maxN; n += increments) {
+//            acc = 0;
+//            for (int i = 0; i < attempts; i ++) {
+//                map = new Map<>();
+//
+//                for (int j = 0; j < n; j++) {
+//                    map.setValue(random.nextInt(), constVal);
+//                }
+//
+//                timeStart = System.nanoTime();
+//                map.setValue(random.nextInt(), constVal);
+//                acc += System.nanoTime() - timeStart;
+//            }
+//
+//            avg = Math.floorDiv(acc, (long) attempts);
+//            System.out.printf("%d;", avg);
+//        }
+//    }
 }
